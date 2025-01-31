@@ -1,11 +1,14 @@
 import subprocess
+import sys
 
 def post_gen_project():
     install_axios = "{{ cookiecutter.install_axios }}"
 
+    print(f"Installing Axios: {install_axios}")  # Add debug print
+
     if install_axios == "yes":
-        # If Axios should be installed, run the npm install command
         print("Installing Axios...")
-        subprocess.run(["npm", "install", "axios"], check=True)
+        result = subprocess.run(["npm", "install", "axios"], check=True, text=True, capture_output=True)
+        print(result.stdout)  # Print npm output for debugging
     else:
         print("Axios will not be installed.")
