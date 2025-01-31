@@ -2,6 +2,8 @@ import subprocess
 import sys
 
 def post_gen_project():
+    print("Post-generation script is running...")
+    
     install_axios = "{{ cookiecutter.install_axios }}"
 
     print(f"Installing Axios: {install_axios}")  # Add debug print
